@@ -1,12 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
+import logging
 
 from ..models import Question
 
+logger = logging.getLogger('pybo')
+
 # Create your views here.
 def index(request):
-    3/0
+    logger.info("INFO 레벨로 출력")
     page = request.GET.get('page', '1')
     kw = request.GET.get('kw', '')
     question_list = Question.objects.order_by('-create_date')
